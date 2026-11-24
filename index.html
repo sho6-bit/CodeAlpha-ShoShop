@@ -13,11 +13,11 @@
 
     <main class="auth-container">
 
-        <aside class="left-illustration">
+        <aside class="left-illustration" id="left-illustration">
             <img src="assets/left.png" alt="Delivery illustration">
         </aside>
 
-        <section class="login-section">
+        <section class="login-section" id="login-section">
 
             <h1>Welcome to Sho Shop!</h1>
             <p>Let's log you in!</p>
@@ -75,7 +75,7 @@
 
                     <p class="signup-text">
                         Don't have an account?
-                        <a href="#">Sign Up!</a>
+                        <a href="#" class="signup-link" id="show-signup">Sign Up!</a>
                     </p>
                 </form>
 
@@ -83,9 +83,10 @@
 
         </section>
 
-        <section class="signup-section">
+        <section class="signup-section" id="signup-section" hidden>
 
             <div class="signup-card">
+
                 <h1>Sign up</h1>
 
                 <form>
@@ -134,11 +135,18 @@
                             >
                     </div>
 
+                    <p class="login-text">
+                        Already have an account?
+                        <a href="#" id="show-login">Sign In</a>
+                    </p>
+
+                    <button type="submit" class="signup-btn">Sign Up</button>
+
                 </form>
             </div>
         </section>
 
-        <aside class="right-illustration">
+        <aside class="right-illustration" id="right-illustration">
             <img src="assets/right.png" alt="Shopping illustration">
         </aside>
 

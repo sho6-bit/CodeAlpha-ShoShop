@@ -3,23 +3,31 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 
+body {
+    min-width: 320px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
+    background-color: #fff;
     color: #222;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 5%;
 }
 
 .left-illustration,
 .right-illustration {
     flex: 1;
+    min-width: 0;
+    align-self: stretch;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    align-self: stretch;
 }
 
 .left-illustration img,
@@ -30,36 +38,36 @@ body {
     object-fit: contain;
 }
 
-.auth-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-    gap: 20;
-}
-
-.login-section {
+.login-section,
+.signup-section {
     flex: 1;
-    max-width: 400px;
     width: 100%;
+    max-width: 400px;
+    min-width: 0;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
 }
 
-.login-section, .signup-section h1 {
+.login-section h1,
+.signup-section h1 {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
 }
 
-.login-card, .signup-card{
+.signup-section h1 {
+    margin-top: 24px;
+}
+
+.login-card,
+.signup-card {
     width: 100%;
     border: 1px solid #c9c5c5;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .social-login {
@@ -83,21 +91,25 @@ body {
 .social-btn img {
     width: 42px;
     height: 42px;
-    object-fit: contain;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 50%;
-    padding: 10px;
+    object-fit: contain;
 }
 
-.social-btn span {
+.social-btn span,
+.forgot-password,
+.signup-text,
+.login-text {
     font-size: 11px;
 }
 
-.login-form {
+.login-form,
+.signup-card form {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     gap: 10px;
+    padding: 20px;
 }
 
 .form-group {
@@ -112,11 +124,11 @@ body {
 }
 
 .form-group input {
-    width: 95%;
-    height: 35px;
+    width: 100%;
+    min-height: 35px;
+    padding: 8px;
     border: 1px solid #c9c5c5;
     border-radius: 3px;
-    padding: 8px;
     outline: none;
 }
 
@@ -125,45 +137,65 @@ body {
 }
 
 .forgot-password {
-    font-size: 11px;
     color: #222;
     text-align: right;
     margin-top: 3px;
 }
 
-.login-btn {
+.login-btn,
+.signup-btn {
     width: 100%;
-    height: 36px;
+    min-height: 36px;
     margin-top: 5px;
-    background-color: #d8d8d8;
     border: 1px solid #bdbdbd;
     border-radius: 3px;
+    background-color: #d8d8d8;
     cursor: pointer;
     font-size: 12px;
-    transition: 0.2s;
+    transition: background-color 0.2s;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.signup-btn:hover {
     background-color: #bdbdbd;
 }
 
-.signup-text {
-    font-size: 11px;
+.signup-text,
+.login-text {
     text-align: center;
     margin-top: 5px;
 }
 
-.signup-text a {
+.signup-text a,
+.login-text a {
     color: #222;
 }
 
-/* Responsive Design */
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 1024px) {
+    .auth-container {
+        gap: 15px;
+        padding: 30px 3%;
+    }
+
+    .left-illustration img,
+    .right-illustration img {
+        max-width: 200px;
+    }
+
+    .login-section,
+    .signup-section {
+        max-width: 370px;
+    }
+}
 
 @media (max-width: 768px) {
-
-    .login-container {
+    .auth-container {
         justify-content: center;
-        padding: 20px;
+        padding: 30px 20px;
     }
 
     .left-illustration,
@@ -171,22 +203,35 @@ body {
         display: none;
     }
 
-    .login-section {
+    .login-section,
+    .signup-section {
+        flex: none;
         max-width: 400px;
     }
 }
 
-@media (max-width: 400px) {
-
-    .login-section h1 {
-        font-size: 18px;
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 20px 16px;
     }
 
-    .login-form {
-        padding: 15px;
+    .login-form,
+    .signup-card form {
+        padding: 20px 16px;
     }
 
     .social-login {
+        gap: 15px;
         padding: 15px;
+    }
+
+    .form-group input {
+        width: 100%;
+        min-height: 40px;
+    }
+
+    .login-btn,
+    .signup-btn {
+        min-height: 42px;
     }
 }
