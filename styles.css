@@ -17,8 +17,9 @@ body {
 .right-illustration {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    align-self: stretch;
 }
 
 .left-illustration img,
@@ -29,7 +30,7 @@ body {
     object-fit: contain;
 }
 
-.login-container {
+.auth-container {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -48,13 +49,13 @@ body {
     gap: 12px;
 }
 
-.login-section h1 {
+.login-section, .signup-section h1 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
 }
 
-.login-card {
+.login-card, .signup-card{
     width: 100%;
     border: 1px solid #c9c5c5;
     border-radius: 4px;
@@ -106,6 +107,7 @@ body {
 }
 
 .form-group label {
+    margin-top: 16px;
     font-size: 12px;
 }
 
