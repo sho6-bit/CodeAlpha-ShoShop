@@ -1720,14 +1720,12 @@ dialog::backdrop {
     transform: translateY(0);
 }
 
-/* Existing account pages */
 .auth-container {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: center;
     padding: 30px 5%;
     background: #fff7fa;
 }
@@ -1739,27 +1737,9 @@ dialog::backdrop {
     right: 5%;
 }
 
-.left-illustration,
-.right-illustration {
-    flex: 1;
-    min-width: 0;
-    align-self: stretch;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.left-illustration img,
-.right-illustration img {
-    width: 100%;
-    max-width: 230px;
-    height: auto;
-    object-fit: contain;
-}
-
 .login-section,
 .signup-section {
-    flex: 1;
+    flex: none;
     width: 100%;
     max-width: 400px;
     min-width: 0;
@@ -2173,19 +2153,7 @@ dialog::backdrop {
     }
 
     .auth-container {
-        justify-content: center;
         padding: 25px 20px;
-    }
-
-    .left-illustration,
-    .right-illustration {
-        display: none;
-    }
-
-    .login-section,
-    .signup-section {
-        flex: none;
-        max-width: 400px;
     }
 }
 

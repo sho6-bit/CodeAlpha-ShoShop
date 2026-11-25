@@ -286,11 +286,10 @@ function getAuthenticatedUser(request) {
 }
 
 function setSessionCookie(response, token, request) {
-    const secure = request.secure ? "; Secure" : "";
     response.cookie("sho_session", token, {
         httpOnly: true,
         sameSite: "lax",
-        secure: Boolean(secure),
+        secure: request.secure,
         maxAge: sessionLifetimeSeconds * 1000,
         path: "/"
     });
@@ -561,26 +560,12 @@ app.get("/api/auth/me", (request, response) => {
     response.json({ user: getAuthenticatedUser(request) });
 });
 
-app.post("/api/auth/register", (request, response) => {
-    createUser(request, response);
-});
+app.post("/api/auth/register", createUser);
 
-app.post("/api/auth/login", (request, response) => {
-    loginUser(request, response);
-});
+app.post("/api/auth/login", loginUser);
 
 app.post("/api/auth/logout", (request, response) => {
-    const token = getSessionToken(request);
-    if (token) {
-        const tokenHash = createHash("sha256").update(token).digest("hex");
-        database.prepare("DELETE FROM sessions WHERE token_hash = ?").run(tokenHash);
-    }
-    response.clearCookie("sho_session", {
-        httpOnly: true,
-        sameSite: "lax",
-        secure: request.secure,
-        path: "/"
-    });
+    clearSession(request, response);
     response.status(204).end();
 });
 
@@ -592,9 +577,7 @@ app.get("/api/orders", (request, response) => {
     response.json({ orders: getOrderHistory(user.id) });
 });
 
-app.post("/api/orders", (request, response) => {
-    createOrder(request, response);
-});
+app.post("/api/orders", createOrder);
 
 app.use("/api", (request, response) => {
     response.status(404).json({ error: "API route not found." });
