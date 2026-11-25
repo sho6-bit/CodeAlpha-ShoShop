@@ -1,52 +1,52 @@
 # Sho Shop
 
-Sho Shop adalah aplikasi toko online demo untuk produk skincare dan makeup. Website ini memiliki antarmuka berbahasa Indonesia dan Inggris, keranjang belanja, halaman detail produk, autentikasi pengguna, serta alur checkout yang menyimpan pesanan ke database SQLite.
+Sho Shop is a demo online storefront for skincare and makeup products. It features an Indonesian and English interface, a shopping bag, product details, user authentication, and a checkout flow that saves orders to a SQLite database.
 
-## Fitur
+## Features
 
-- **Katalog produk** — pencarian, filter kategori, pengurutan, dan detail produk.
-- **Keranjang belanja** — tambah produk dan atur jumlah item; isi keranjang disimpan di browser.
-- **Checkout** — checkout sebagai tamu atau pengguna terdaftar, dengan ongkir dan total yang dihitung ulang oleh server.
-- **Akun pengguna** — daftar, masuk, keluar, dan melihat riwayat pesanan setelah masuk.
-- **Dua bahasa** — beralih antara Bahasa Indonesia dan English; pilihan bahasa disimpan di browser.
-- **Penyimpanan data** — produk, pengguna, sesi, pesanan, dan item pesanan disimpan di SQLite.
-- **Tampilan responsif** — halaman toko, login, dan daftar dapat digunakan di layar desktop maupun ponsel.
+- **Product catalog** — search, category filters, sorting, and product details.
+- **Shopping bag** — add products and adjust quantities; bag contents are stored in the browser.
+- **Checkout** — place orders as a guest or registered user; the server recalculates shipping and totals.
+- **User accounts** — register, sign in, sign out, and view order history while signed in.
+- **Bilingual interface** — switch between Indonesian and English; the selected language is stored in the browser.
+- **Data persistence** — products, users, sessions, orders, and order items are stored in SQLite.
+- **Responsive layout** — storefront, sign-in, and registration pages support desktop and mobile screens.
 
-## Teknologi
+## Technology
 
-- HTML, CSS, dan JavaScript
-- Node.js dan Express.js
-- SQLite melalui modul bawaan `node:sqlite`
+- HTML, CSS, and JavaScript
+- Node.js and Express.js
+- SQLite through the built-in `node:sqlite` module
 
-## Persyaratan
+## Requirements
 
-- Node.js **22.13 atau lebih baru**
+- Node.js **22.13 or later**
 - npm
 
-## Menjalankan secara lokal
+## Run locally
 
-Dari direktori proyek, jalankan:
+From the project directory, run:
 
 ```bash
 npm install
 npm start
 ```
 
-Kemudian buka [http://127.0.0.1:3000](http://127.0.0.1:3000).
+Then open [http://127.0.0.1:3000](http://127.0.0.1:3000).
 
-Saat server pertama kali dijalankan, aplikasi membuat database `data/sho-shop.sqlite` dan memasukkan katalog contoh. Database lokal tidak perlu dibuat secara manual.
+On the first server start, the app creates `data/sho-shop.sqlite` and seeds the sample product catalog. No manual database setup is required.
 
-## Konfigurasi server
+## Server configuration
 
-Semua konfigurasi bersifat opsional:
+All configuration variables are optional:
 
-| Variabel | Default | Keterangan |
+| Variable | Default | Description |
 | --- | --- | --- |
-| `PORT` | `3000` | Port HTTP Express |
-| `HOST` | `127.0.0.1` | Alamat jaringan tempat server mendengarkan |
-| `SHO_SHOP_DB` | `data/sho-shop.sqlite` | Lokasi file database SQLite |
+| `PORT` | `3000` | Express HTTP port |
+| `HOST` | `127.0.0.1` | Network address the server listens on |
+| `SHO_SHOP_DB` | `data/sho-shop.sqlite` | SQLite database file location |
 
-Contoh mengubah port di PowerShell:
+Example: change the port in PowerShell:
 
 ```powershell
 $env:PORT = "4000"
@@ -55,26 +55,26 @@ npm start
 
 ## API
 
-Semua endpoint mengembalikan JSON, kecuali endpoint logout yang mengembalikan respons kosong.
+All endpoints return JSON except the logout endpoint, which returns an empty response.
 
-| Metode | Endpoint | Keterangan |
+| Method | Endpoint | Description |
 | --- | --- | --- |
-| `GET` | `/api/products` | Mengambil katalog produk |
-| `GET` | `/api/auth/me` | Memeriksa sesi pengguna saat ini |
-| `POST` | `/api/auth/register` | Membuat akun baru |
-| `POST` | `/api/auth/login` | Masuk ke akun |
-| `POST` | `/api/auth/logout` | Mengakhiri sesi |
-| `GET` | `/api/orders` | Mengambil riwayat pesanan pengguna yang masuk |
-| `POST` | `/api/orders` | Membuat pesanan baru; dapat digunakan oleh tamu |
+| `GET` | `/api/products` | Retrieve the product catalog |
+| `GET` | `/api/auth/me` | Check the current user session |
+| `POST` | `/api/auth/register` | Create a new account |
+| `POST` | `/api/auth/login` | Sign in to an account |
+| `POST` | `/api/auth/logout` | End the current session |
+| `GET` | `/api/orders` | Retrieve order history for the signed-in user |
+| `POST` | `/api/orders` | Create an order; guests are also supported |
 
-Contoh body untuk membuat pesanan:
+Example request body for creating an order:
 
 ```json
 {
   "customer": {
-    "name": "Nama Penerima",
+    "name": "Customer Name",
     "phone": "08123456789",
-    "address": "Alamat pengiriman",
+    "address": "Delivery address",
     "city": "Jakarta",
     "postalCode": "12345"
   },
@@ -89,16 +89,16 @@ Contoh body untuk membuat pesanan:
 }
 ```
 
-Nilai `payment` yang tersedia: `cod`, `bank_transfer`, dan `qris`.
+Supported `payment` values: `cod`, `bank_transfer`, and `qris`.
 
-## Database dan keamanan akun
+## Database and account security
 
-Database membuat tabel `products`, `users`, `sessions`, `orders`, dan `order_items` secara otomatis. Harga produk diambil dari database saat pesanan dibuat, sehingga subtotal, ongkir, dan total tidak mempercayai nilai harga dari browser. Ongkir demo adalah Rp15.000 dan gratis untuk subtotal minimal Rp250.000.
+The database automatically creates the `products`, `users`, `sessions`, `orders`, and `order_items` tables. Product prices are retrieved from the database when an order is placed, so the server does not trust prices sent by the browser when calculating the subtotal, shipping, or total. Demo shipping is Rp15,000 and is free for subtotals of Rp250,000 or more.
 
-Kata sandi akun disimpan sebagai hash scrypt dengan salt. Sesi menggunakan cookie `HttpOnly`. File database lokal berada di folder `data/` dan diabaikan oleh Git.
+Account passwords are stored as salted scrypt hashes. Sessions use an `HttpOnly` cookie. The local database file is stored in `data/` and is ignored by Git.
 
-## Batasan demo
+## Demo limitations
 
-- Produk yang tersedia merupakan katalog contoh yang di-seed saat server pertama kali dijalankan. Belum tersedia panel admin atau endpoint untuk mengelola produk.
-- Pilihan pembayaran hanya simulasi; tidak ada pembayaran nyata atau integrasi payment gateway.
-- Proyek ini ditujukan untuk demonstrasi dan pengembangan lokal. Sebelum digunakan sebagai layanan produksi, diperlukan konfigurasi dan pemeriksaan keamanan tambahan.
+- The catalog contains sample products seeded on the first server start. There is no admin panel or product-management API.
+- Payment methods are simulations; no real payments are processed and no payment gateway is integrated.
+- This project is intended for demonstration and local development. Additional configuration and security review are required before using it as a production service.
