@@ -7,72 +7,79 @@
     <meta name="description" content="Buat akun Sho Shop">
     <title>Sho Shop - Buat Akun</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-i18n-title="page.signup.title" data-i18n-description="page.signup.description">
     <main class="auth-container">
+        <button class="language-toggle auth-language-toggle" type="button" data-language-toggle aria-label="Ganti bahasa">English</button>
         <section class="signup-section" id="signup-section">
-            <a class="auth-home-link" href="index.html">← Kembali ke Sho Shop</a>
+            <a class="auth-home-link" href="index.html" data-i18n="auth.back">← Kembali ke Sho Shop</a>
             <div class="signup-card">
-                <h1>Buat akun</h1>
+                <h1 data-i18n="auth.signup.heading">Buat akun</h1>
 
-                <form>
+                <form id="signup-form">
                     <div class="form-group">
-                        <label for="name">Nama lengkap:</label>
+                        <label for="name" data-i18n="auth.name">Nama lengkap</label>
                         <input
                             type="text"
                             id="name"
                             name="name"
+                            data-i18n-placeholder="auth.name.placeholder"
                             placeholder="Nama kamu"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Nomor telepon:</label>
+                        <label for="phone" data-i18n="auth.phone">Nomor telepon</label>
                         <input
                             type="tel"
                             id="phone"
                             name="phone"
+                            data-i18n-placeholder="auth.phone.placeholder"
                             placeholder="Contoh: 081234567890"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email:</label>
+                        <label for="email" data-i18n="auth.email">Email</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
+                            data-i18n-placeholder="auth.email.placeholder"
                             placeholder="Masukkan email"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Kata sandi:</label>
+                        <label for="password" data-i18n="auth.password">Kata sandi</label>
                         <input
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="Buat kata sandi"
+                            data-i18n-placeholder="auth.password.placeholder.signup"
+                            minlength="8"
+                            placeholder="Buat kata sandi (min. 8 karakter)"
                             required
                         >
                     </div>
 
+                    <p class="auth-message" id="auth-message" role="alert" aria-live="polite" hidden></p>
                     <p class="login-text">
-                        Sudah punya akun?
-                        <a href="login.html" id="show-login">Masuk</a>
+                        <span data-i18n="auth.signup.prompt">Sudah punya akun?</span>
+                        <a href="login.html" id="show-login" data-i18n="auth.login.link">Masuk</a>
                     </p>
 
-                    <button type="submit" class="signup-btn">Daftar</button>
+                    <button type="submit" class="signup-btn" data-i18n="auth.signup.submit">Daftar</button>
                 </form>
             </div>
         </section>
     </main>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

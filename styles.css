@@ -102,7 +102,7 @@ button {
 .header-main {
     min-height: 80px;
     display: grid;
-    grid-template-columns: 190px minmax(200px, 1fr) 190px;
+    grid-template-columns: 190px minmax(200px, 1fr) 280px;
     align-items: center;
     gap: 30px;
 }
@@ -200,7 +200,8 @@ button {
 }
 
 .account-link,
-.cart-trigger {
+.cart-trigger,
+.logout-button {
     display: inline-flex;
     align-items: center;
     gap: 7px;
@@ -213,8 +214,35 @@ button {
 }
 
 .account-link:hover,
-.cart-trigger:hover {
+.cart-trigger:hover,
+.logout-button:hover {
     color: var(--pink-deep);
+}
+
+.logout-button {
+    padding: 0;
+}
+
+.language-toggle {
+    min-height: 30px;
+    padding: 0 11px;
+    border: 1px solid #efd6e0;
+    border-radius: 999px;
+    background: #fff8fa;
+    color: #88536a;
+    font-size: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.language-toggle:hover {
+    background: var(--pink-soft);
+    color: var(--pink-deep);
+}
+
+.logout-button[hidden] {
+    display: none;
 }
 
 .cart-trigger {
@@ -1633,6 +1661,7 @@ dialog::backdrop {
 
 /* Existing account pages */
 .auth-container {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -1640,6 +1669,13 @@ dialog::backdrop {
     gap: 30px;
     padding: 30px 5%;
     background: #fff7fa;
+}
+
+.auth-language-toggle {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    right: 5%;
 }
 
 .left-illustration,
@@ -1816,13 +1852,24 @@ dialog::backdrop {
     color: var(--pink-deep);
 }
 
+.auth-message {
+    margin: 0;
+    color: #a6335e;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.auth-message[hidden] {
+    display: none;
+}
+
 [hidden] {
     display: none !important;
 }
 
 @media (max-width: 950px) {
     .header-main {
-        grid-template-columns: 160px minmax(180px, 1fr) 155px;
+        grid-template-columns: 160px minmax(180px, 1fr) 250px;
         gap: 18px;
     }
 
@@ -1875,6 +1922,11 @@ dialog::backdrop {
 
     .header-actions {
         gap: 15px;
+    }
+
+    .header-actions .language-toggle {
+        padding: 0 8px;
+        font-size: 9px;
     }
 
     .account-link span {

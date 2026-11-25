@@ -7,72 +7,74 @@
     <meta name="description" content="Masuk ke akun Sho Shop">
     <title>Sho Shop - Masuk</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-i18n-title="page.login.title" data-i18n-description="page.login.description">
     <main class="auth-container login-container">
-
+        <button class="language-toggle auth-language-toggle" type="button" data-language-toggle aria-label="Ganti bahasa">English</button>
         <section class="login-section" id="login-section">
-            <a class="auth-home-link" href="index.html">← Kembali ke Sho Shop</a>
-            <h1>Selamat datang di Sho Shop!</h1>
-            <p>Masuk untuk mulai berbelanja.</p>
+            <a class="auth-home-link" href="index.html" data-i18n="auth.back">← Kembali ke Sho Shop</a>
+            <h1 data-i18n="auth.login.heading">Selamat datang di Sho Shop!</h1>
+            <p data-i18n="auth.login.description">Masuk untuk mulai berbelanja.</p>
 
             <div class="login-card">
                 <div class="social-login">
                     <button type="button" class="social-btn">
                         <img src="assets/icon-google.png" alt="Google">
-                        <span>Google</span>
+                        <span data-i18n="auth.google">Google</span>
                     </button>
 
                     <button type="button" class="social-btn">
                         <img src="assets/icon-phone.png" alt="Phone">
-                        <span>Phone</span>
+                        <span data-i18n="auth.phone.provider">Phone</span>
                     </button>
 
                     <button type="button" class="social-btn">
                         <img src="assets/icon-apple.png" alt="Apple">
-                        <span>Apple</span>
+                        <span data-i18n="auth.apple">Apple</span>
                     </button>
                 </div>
 
-                <form class="login-form">
+                <form class="login-form" id="login-form">
                     <div class="form-group">
-                        <label for="email">Email:</label>
+                        <label for="email" data-i18n="auth.email">Email</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
+                            data-i18n-placeholder="auth.email.placeholder"
                             placeholder="Masukkan email"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Kata sandi:</label>
+                        <label for="password" data-i18n="auth.password">Kata sandi</label>
                         <input
                             type="password"
                             id="password"
                             name="password"
+                            data-i18n-placeholder="auth.password.placeholder.login"
                             placeholder="Masukkan kata sandi"
                             required
                         >
                     </div>
 
-                    <a href="#" class="forgot-password">Lupa kata sandi?</a>
+                    <a href="#" class="forgot-password" data-i18n="auth.forgot">Lupa kata sandi?</a>
 
-                    <button type="submit" class="login-btn">Masuk</button>
+                    <p class="auth-message" id="auth-message" role="alert" aria-live="polite" hidden></p>
+                    <button type="submit" class="login-btn" data-i18n="auth.login.submit">Masuk</button>
 
                     <p class="signup-text">
-                        Belum punya akun?
-                        <a href="signup.html" class="signup-link" id="show-signup">Daftar</a>
+                        <span data-i18n="auth.login.prompt">Belum punya akun?</span>
+                        <a href="signup.html" class="signup-link" id="show-signup" data-i18n="auth.signup.link">Daftar</a>
                     </p>
                 </form>
             </div>
         </section>
-
     </main>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

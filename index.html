@@ -8,66 +8,69 @@
     <meta name="theme-color" content="#fff7fa">
     <title>Sho Shop - K-beauty untuk hari-harimu</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script>
     <script src="shop.js" defer></script>
 </head>
 
-<body class="shop-page">
+<body class="shop-page" data-i18n-title="page.home.title" data-i18n-description="page.home.description">
     <div class="announcement-bar">
-        <p>Little rituals, lovely days <span aria-hidden="true">✿</span> Temukan self-care favoritmu di Sho Shop</p>
+        <p><span data-i18n="announcement.first">Little rituals, lovely days</span><span aria-hidden="true">✿</span><span data-i18n="announcement.last">Temukan self-care favoritmu di Sho Shop</span></p>
     </div>
 
     <header class="site-header">
         <div class="header-main">
-            <a class="brand" href="index.html" aria-label="Sho Shop - halaman utama">
+            <a class="brand" href="index.html" aria-label="Sho Shop - halaman utama" data-i18n-aria="brand.home.aria">
                 <span class="brand-mark" aria-hidden="true">s</span>
                 <span>sho<span class="brand-accent">shop</span></span>
             </a>
 
             <form class="search-form" id="search-form" role="search">
-                <label class="sr-only" for="product-search">Cari produk</label>
-                <input id="product-search" type="search" placeholder="Cari serum, sunscreen, dan lainnya">
-                <button type="submit" aria-label="Cari produk">
+                <label class="sr-only" for="product-search" data-i18n="search.label">Cari produk</label>
+                <input id="product-search" type="search" data-i18n-placeholder="search.placeholder" placeholder="Cari serum, sunscreen, dan lainnya">
+                <button type="submit" data-i18n-aria="search.button" aria-label="Cari produk">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
                 </button>
             </form>
 
             <div class="header-actions">
-                <a class="account-link" href="login.html" aria-label="Masuk ke akun Sho Shop">
+                <a class="account-link" href="login.html" aria-label="Masuk ke akun Sho Shop" data-i18n-aria="account.aria">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.5-3.4 3.2-5.3 7-5.3s6.5 1.9 7 5.3"></path></svg>
-                    <span>Masuk</span>
+                    <span data-i18n="account.login">Masuk</span>
                 </a>
+                <button class="logout-button" id="logout-button" type="button" hidden data-i18n="account.logout">Keluar</button>
+                <button class="language-toggle" type="button" data-language-toggle aria-label="Ganti bahasa">English</button>
                 <button class="cart-trigger" id="open-cart" type="button" aria-label="Buka keranjang, 0 item">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg>
-                    <span class="cart-label">Tas</span>
+                    <span class="cart-label" data-i18n="cart.label">Tas</span>
                     <span class="cart-count" id="cart-count">0</span>
                 </button>
             </div>
         </div>
 
-        <nav class="site-nav" aria-label="Navigasi utama">
-            <a href="#concerns">Kebutuhan kulit</a>
-            <a href="#products" data-nav-category="Skincare">Skincare</a>
-            <a href="#products" data-nav-category="Makeup">Makeup</a>
-            <a href="#products" data-nav-category="Sunscreen">Sunscreen</a>
-            <a href="#about">Tentang Sho Shop</a>
+        <nav class="site-nav" aria-label="Navigasi utama" data-i18n-aria="nav.aria">
+            <a href="#concerns" data-i18n="nav.concerns">Kebutuhan kulit</a>
+            <a href="#products" data-nav-category="Skincare" data-i18n="nav.skincare">Skincare</a>
+            <a href="#products" data-nav-category="Makeup" data-i18n="nav.makeup">Makeup</a>
+            <a href="#products" data-nav-category="Sunscreen" data-i18n="nav.sunscreen">Sunscreen</a>
+            <a href="#about" data-i18n="nav.about">Tentang Sho Shop</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-copy">
-                <p class="eyebrow"><span aria-hidden="true">✿</span> A LITTLE LOVE FOR YOUR SKIN</p>
-                <h1>Rawat dirimu,<br><em>rayakan</em> versi terbaikmu.</h1>
-                <p class="hero-description">
+                <p class="eyebrow"><span aria-hidden="true">✿</span> <span data-i18n="hero.eyebrow">A LITTLE LOVE FOR YOUR SKIN</span></p>
+                <h1><span data-i18n="hero.title.start">Rawat dirimu,</span><br><em data-i18n="hero.title.highlight">rayakan</em> <span data-i18n="hero.title.end">versi terbaikmu.</span></h1>
+                <p class="hero-description" data-i18n="hero.description">
                     Temukan skincare dan makeup pilihan untuk ritual kecil yang bikin harimu terasa lebih istimewa.
                 </p>
                 <div class="hero-actions">
-                    <a class="primary-button" href="#products">Belanja pilihan kami <span aria-hidden="true">↗</span></a>
-                    <a class="text-button" href="#concerns">Cari sesuai kebutuhan <span aria-hidden="true">↓</span></a>
+                    <a class="primary-button" href="#products"><span data-i18n="hero.shop">Belanja pilihan kami</span> <span aria-hidden="true">↗</span></a>
+                    <a class="text-button" href="#concerns"><span data-i18n="hero.find">Cari sesuai kebutuhan</span> <span aria-hidden="true">↓</span></a>
                 </div>
                 <div class="hero-note">
                     <div class="avatar-stack" aria-hidden="true"><span>♡</span><span>✿</span><span>☼</span></div>
-                    <p>Temukan ritual yang terasa <strong>seperti kamu.</strong></p>
+                    <p><span data-i18n="hero.note">Temukan ritual yang terasa</span> <strong data-i18n="hero.note.strong">seperti kamu.</strong></p>
                 </div>
             </div>
             <div class="hero-visual" aria-hidden="true">
@@ -91,134 +94,135 @@
             </div>
         </section>
 
-        <section class="promise-row" aria-label="Keunggulan Sho Shop">
-            <div><span class="promise-icon">♡</span><p><strong>Pilihan penuh perhatian</strong><small>Untuk rutinitas harianmu</small></p></div>
-            <div><span class="promise-icon">✿</span><p><strong>Detail produk jelas</strong><small>Kenali sebelum memilih</small></p></div>
-            <div><span class="promise-icon">☼</span><p><strong>Checkout praktis</strong><small>Pesanan dalam satu alur</small></p></div>
+        <section class="promise-row" aria-label="Keunggulan Sho Shop" data-i18n-aria="promise.aria">
+            <div><span class="promise-icon">♡</span><p><strong data-i18n="promise.selection">Pilihan penuh perhatian</strong><small data-i18n="promise.selection.note">Untuk rutinitas harianmu</small></p></div>
+            <div><span class="promise-icon">✿</span><p><strong data-i18n="promise.details">Detail produk jelas</strong><small data-i18n="promise.details.note">Kenali sebelum memilih</small></p></div>
+            <div><span class="promise-icon">☼</span><p><strong data-i18n="promise.checkout">Checkout praktis</strong><small data-i18n="promise.checkout.note">Pesanan dalam satu alur</small></p></div>
         </section>
 
         <section class="concern-section page-section" id="concerns">
             <div class="section-heading">
                 <div>
-                    <p class="eyebrow">MULAI DARI YANG KAMU BUTUHKAN</p>
-                    <h2>Hari ini, kulitmu ingin apa?</h2>
+                    <p class="eyebrow" data-i18n="concern.eyebrow">MULAI DARI YANG KAMU BUTUHKAN</p>
+                    <h2 data-i18n="concern.title">Hari ini, kulitmu ingin apa?</h2>
                 </div>
-                <p>Pilih suasana atau kategori untuk menemukan produk yang pas buat ritualmu.</p>
+                <p data-i18n="concern.description">Pilih suasana atau kategori untuk menemukan produk yang pas buat ritualmu.</p>
             </div>
-            <div class="concern-list" id="category-filters" role="group" aria-label="Filter kategori produk">
-                <button class="concern-chip is-active" type="button" data-category="Semua">Semua pilihan</button>
-                <button class="concern-chip" type="button" data-category="Skincare"><span>♡</span> Skincare</button>
-                <button class="concern-chip" type="button" data-category="Sunscreen"><span>☼</span> Sun care</button>
-                <button class="concern-chip" type="button" data-category="Makeup"><span>✿</span> Makeup</button>
-                <button class="concern-chip" type="button" data-category="Cleanser"><span>◌</span> Cleanser</button>
+            <div class="concern-list" id="category-filters" role="group" aria-label="Filter kategori produk" data-i18n-aria="filter.aria">
+                <button class="concern-chip is-active" type="button" data-category="Semua" data-i18n="category.all">Semua pilihan</button>
+                <button class="concern-chip" type="button" data-category="Skincare"><span>♡</span> <span data-i18n="category.skincare">Skincare</span></button>
+                <button class="concern-chip" type="button" data-category="Sunscreen"><span>☼</span> <span data-i18n="category.sunscreen">Sun care</span></button>
+                <button class="concern-chip" type="button" data-category="Makeup"><span>✿</span> <span data-i18n="category.makeup">Makeup</span></button>
+                <button class="concern-chip" type="button" data-category="Cleanser"><span>◌</span> <span data-i18n="category.cleanser">Cleanser</span></button>
             </div>
         </section>
 
         <section class="product-section page-section" id="products">
             <div class="section-heading product-heading">
                 <div>
-                    <p class="eyebrow">PILIHAN SHO SHOP</p>
-                    <h2>Teman baik untuk rutinitasmu</h2>
+                    <p class="eyebrow" data-i18n="products.eyebrow">PILIHAN SHO SHOP</p>
+                    <h2 data-i18n="products.title">Teman baik untuk rutinitasmu</h2>
                 </div>
                 <label class="sort-control">
-                    <span>Urutkan</span>
-                    <select id="sort-products" aria-label="Urutkan produk">
-                        <option value="featured">Pilihan kami</option>
-                        <option value="price-low">Harga terendah</option>
-                        <option value="price-high">Harga tertinggi</option>
-                        <option value="name">Nama A-Z</option>
+                    <span data-i18n="products.sort.label">Urutkan</span>
+                    <select id="sort-products" aria-label="Urutkan produk" data-i18n-aria="products.sort.aria">
+                        <option value="featured" data-i18n="products.sort.featured">Pilihan kami</option>
+                        <option value="price-low" data-i18n="products.sort.low">Harga terendah</option>
+                        <option value="price-high" data-i18n="products.sort.high">Harga tertinggi</option>
+                        <option value="name" data-i18n="products.sort.name">Nama A-Z</option>
                     </select>
                 </label>
             </div>
             <p class="result-caption" id="result-caption" aria-live="polite"></p>
             <div class="product-grid" id="product-grid"></div>
-            <p class="empty-results" id="empty-results" hidden>Belum ada produk yang cocok. Coba kata kunci atau kategori lain.</p>
+            <p class="empty-results" id="empty-results" hidden data-i18n="products.empty">Belum ada produk yang cocok. Coba kata kunci atau kategori lain.</p>
+            <p class="empty-results" id="product-error" hidden data-i18n="products.error">Produk tidak dapat dimuat. Pastikan server Sho Shop sedang berjalan, lalu coba muat ulang.</p>
         </section>
 
         <section class="pink-promo" id="about">
             <div class="promo-doodle" aria-hidden="true">♡</div>
             <div>
-                <p class="eyebrow">A NOTE FROM SHO SHOP</p>
-                <h2>Self-care bukan soal sempurna.<br>Ini soal merasa baik dengan dirimu.</h2>
-                <p>Luangkan waktu untuk hal-hal kecil yang membuatmu merasa nyaman.</p>
+                <p class="eyebrow" data-i18n="promo.eyebrow">A NOTE FROM SHO SHOP</p>
+                <h2><span data-i18n="promo.title.first">Self-care bukan soal sempurna.</span><br><span data-i18n="promo.title.second">Ini soal merasa baik dengan dirimu.</span></h2>
+                <p data-i18n="promo.description">Luangkan waktu untuk hal-hal kecil yang membuatmu merasa nyaman.</p>
             </div>
-            <a class="light-button" href="signup.html">Kenalan lebih dekat <span aria-hidden="true">↗</span></a>
+            <a class="light-button" href="signup.html"><span data-i18n="promo.join">Kenalan lebih dekat</span> <span aria-hidden="true">↗</span></a>
         </section>
     </main>
 
     <footer class="site-footer">
         <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">s</span><span>sho<span class="brand-accent">shop</span></span></a>
-        <p>Ritual kecil, hari yang lebih lovely.</p>
+        <p data-i18n="footer.tagline">Ritual kecil, hari yang lebih lovely.</p>
         <div class="footer-links">
-            <a href="login.html">Masuk</a>
-            <a href="signup.html">Buat akun</a>
-            <a href="#products">Belanja</a>
+            <a href="login.html" data-i18n="footer.signin">Masuk</a>
+            <a href="signup.html" data-i18n="footer.signup">Buat akun</a>
+            <a href="#products" data-i18n="footer.shop">Belanja</a>
         </div>
-        <small>Demo toko online. Pesanan dan checkout disimpan di perangkat ini.</small>
+        <small data-i18n="footer.demo">Demo toko online. Pesanan disimpan di database lokal.</small>
     </footer>
 
     <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
         <div class="dialog-header">
-            <div><p class="eyebrow">YOUR LITTLE FINDS</p><h2 id="cart-title">Tas belanja <span id="cart-title-count"></span></h2></div>
-            <button class="icon-button" type="button" data-close-dialog="cart-dialog" aria-label="Tutup keranjang">×</button>
+            <div><p class="eyebrow" data-i18n="cart.eyebrow">YOUR LITTLE FINDS</p><h2 id="cart-title"><span data-i18n="cart.title">Tas belanja</span> <span id="cart-title-count"></span></h2></div>
+            <button class="icon-button" type="button" data-close-dialog="cart-dialog" aria-label="Tutup keranjang" data-i18n-aria="cart.close">×</button>
         </div>
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-empty" id="cart-empty" hidden>
             <span class="empty-heart" aria-hidden="true">♡</span>
-            <h3>Tasmu masih kosong</h3>
-            <p>Temukan sesuatu yang pas untuk ritualmu hari ini.</p>
-            <button class="primary-button" type="button" data-close-dialog="cart-dialog">Lihat produk</button>
+            <h3 data-i18n="cart.empty.title">Tasmu masih kosong</h3>
+            <p data-i18n="cart.empty.description">Temukan sesuatu yang pas untuk ritualmu hari ini.</p>
+            <button class="primary-button" type="button" data-close-dialog="cart-dialog" data-i18n="cart.empty.button">Lihat produk</button>
         </div>
         <div class="cart-summary" id="cart-summary">
-            <p><span>Subtotal</span><strong id="cart-subtotal">Rp0</strong></p>
-            <p><span>Ongkir</span><strong id="cart-shipping">Rp0</strong></p>
-            <p class="cart-total"><span>Total</span><strong id="cart-total">Rp0</strong></p>
-            <small>Ongkir demo Rp15.000, gratis untuk subtotal mulai Rp250.000.</small>
-            <button class="primary-button checkout-button" id="start-checkout" type="button">Lanjut ke checkout <span aria-hidden="true">→</span></button>
+            <p><span data-i18n="cart.subtotal">Subtotal</span><strong id="cart-subtotal">Rp0</strong></p>
+            <p><span data-i18n="cart.shipping">Ongkir</span><strong id="cart-shipping">Rp0</strong></p>
+            <p class="cart-total"><span data-i18n="cart.total">Total</span><strong id="cart-total">Rp0</strong></p>
+            <small data-i18n="cart.shipping.note">Ongkir Rp15.000, gratis untuk subtotal mulai Rp250.000.</small>
+            <button class="primary-button checkout-button" id="start-checkout" type="button"><span data-i18n="cart.checkout">Lanjut ke checkout</span> <span aria-hidden="true">→</span></button>
         </div>
     </dialog>
 
-    <dialog class="product-dialog" id="product-dialog" aria-label="Detail produk">
-        <button class="icon-button dialog-close" type="button" data-close-dialog="product-dialog" aria-label="Tutup detail produk">×</button>
+    <dialog class="product-dialog" id="product-dialog" aria-label="Detail produk" data-i18n-aria="product.dialog">
+        <button class="icon-button dialog-close" type="button" data-close-dialog="product-dialog" aria-label="Tutup detail produk" data-i18n-aria="product.close">×</button>
         <div id="product-detail"></div>
     </dialog>
 
     <dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
         <div class="dialog-header">
-            <div><p class="eyebrow">ONE LAST STEP</p><h2 id="checkout-title">Detail pesanan</h2></div>
-            <button class="icon-button" type="button" data-close-dialog="checkout-dialog" aria-label="Tutup checkout">×</button>
+            <div><p class="eyebrow" data-i18n="checkout.eyebrow">ONE LAST STEP</p><h2 id="checkout-title" data-i18n="checkout.title">Detail pesanan</h2></div>
+            <button class="icon-button" type="button" data-close-dialog="checkout-dialog" aria-label="Tutup checkout" data-i18n-aria="checkout.close">×</button>
         </div>
         <div class="checkout-summary" id="checkout-summary"></div>
-        <p class="demo-payment-note">Mode demo: checkout menyimpan pesanan di browser. Pembayaran online belum terhubung.</p>
+        <p class="demo-payment-note" data-i18n="checkout.demo">Mode demo: pesanan disimpan di database lokal. Pembayaran online belum terhubung.</p>
         <form class="checkout-form" id="checkout-form">
             <div class="checkout-fields">
-                <label>Nama penerima<input name="name" autocomplete="name" required></label>
-                <label>Nomor telepon<input name="phone" type="tel" autocomplete="tel" required></label>
-                <label class="field-full">Alamat lengkap<textarea name="address" rows="3" autocomplete="street-address" required></textarea></label>
-                <label>Kota<input name="city" autocomplete="address-level2" required></label>
-                <label>Kode pos<input name="postalCode" inputmode="numeric" autocomplete="postal-code" required></label>
-                <label class="field-full">Metode pembayaran
+                <label><span data-i18n="checkout.name">Nama penerima</span><input name="name" autocomplete="name" required></label>
+                <label><span data-i18n="checkout.phone">Nomor telepon</span><input name="phone" type="tel" autocomplete="tel" required></label>
+                <label class="field-full"><span data-i18n="checkout.address">Alamat lengkap</span><textarea name="address" rows="3" autocomplete="street-address" required></textarea></label>
+                <label><span data-i18n="checkout.city">Kota</span><input name="city" autocomplete="address-level2" required></label>
+                <label><span data-i18n="checkout.postal">Kode pos</span><input name="postalCode" inputmode="numeric" autocomplete="postal-code" required></label>
+                <label class="field-full"><span data-i18n="checkout.payment">Metode pembayaran</span>
                     <select name="payment" required>
-                        <option value="Bayar di tempat (demo)">Bayar di tempat (demo)</option>
-                        <option value="Transfer bank (demo)">Transfer bank (demo)</option>
-                        <option value="QRIS (demo)">QRIS (demo)</option>
+                        <option value="cod" data-i18n="checkout.payment.cod">Bayar di tempat (demo)</option>
+                        <option value="bank_transfer" data-i18n="checkout.payment.transfer">Transfer bank (demo)</option>
+                        <option value="qris" data-i18n="checkout.payment.qris">QRIS (demo)</option>
                     </select>
                 </label>
-                <label class="field-full">Catatan untuk pesanan <textarea name="note" rows="2" placeholder="Opsional"></textarea></label>
+                <label class="field-full"><span data-i18n="checkout.note">Catatan untuk pesanan</span><textarea name="note" rows="2" data-i18n-placeholder="checkout.optional" placeholder="Opsional"></textarea></label>
             </div>
-            <button class="primary-button checkout-button" type="submit">Buat pesanan <span aria-hidden="true">→</span></button>
+            <button class="primary-button checkout-button" type="submit"><span data-i18n="checkout.submit">Buat pesanan</span> <span aria-hidden="true">→</span></button>
         </form>
     </dialog>
 
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-title">
-        <button class="icon-button dialog-close" type="button" data-close-dialog="order-dialog" aria-label="Tutup konfirmasi">×</button>
+        <button class="icon-button dialog-close" type="button" data-close-dialog="order-dialog" aria-label="Tutup konfirmasi" data-i18n-aria="order.close">×</button>
         <div class="order-success-mark" aria-hidden="true">✓</div>
-        <p class="eyebrow">ORDER RECEIVED</p>
-        <h2 id="order-title">Pesananmu tercatat!</h2>
-        <p class="order-message">Ini adalah simulasi checkout. Tidak ada pembayaran nyata yang diproses.</p>
-        <div class="order-reference"><span>Nomor pesanan</span><strong id="order-number"></strong></div>
-        <div class="order-reference"><span>Total pesanan</span><strong id="order-total"></strong></div>
-        <button class="primary-button checkout-button" type="button" data-close-dialog="order-dialog">Kembali belanja</button>
+        <p class="eyebrow" data-i18n="order.eyebrow">ORDER RECEIVED</p>
+        <h2 id="order-title" data-i18n="order.title">Pesananmu tercatat!</h2>
+        <p class="order-message" data-i18n="order.message">Ini adalah checkout demo. Tidak ada pembayaran nyata yang diproses.</p>
+        <div class="order-reference"><span data-i18n="order.reference">Nomor pesanan</span><strong id="order-number"></strong></div>
+        <div class="order-reference"><span data-i18n="order.total">Total pesanan</span><strong id="order-total"></strong></div>
+        <button class="primary-button checkout-button" type="button" data-close-dialog="order-dialog" data-i18n="order.back">Kembali belanja</button>
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
