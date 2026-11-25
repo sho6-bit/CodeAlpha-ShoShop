@@ -1,24 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Log in to Sho Shop">
-    <title>Sho Shop - Log In</title>
+    <meta name="description" content="Masuk ke akun Sho Shop">
+    <title>Sho Shop - Masuk</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <main class="auth-container">
-
-        <aside class="left-illustration" id="left-illustration">
-            <img src="assets/left.png" alt="Delivery illustration">
-        </aside>
+    <main class="auth-container login-container">
 
         <section class="login-section" id="login-section">
-            <h1>Welcome to Sho Shop!</h1>
-            <p>Let's log you in!</p>
+            <a class="auth-home-link" href="index.html">← Kembali ke Sho Shop</a>
+            <h1>Selamat datang di Sho Shop!</h1>
+            <p>Masuk untuk mulai berbelanja.</p>
 
             <div class="login-card">
                 <div class="social-login">
@@ -40,44 +37,38 @@
 
                 <form class="login-form">
                     <div class="form-group">
-                        <label for="email">Email :</label>
+                        <label for="email">Email:</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Enter your email"
+                            placeholder="Masukkan email"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password :</label>
+                        <label for="password">Kata sandi:</label>
                         <input
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="Enter your password"
+                            placeholder="Masukkan kata sandi"
                             required
                         >
                     </div>
 
-                    <a href="#" class="forgot-password">
-                        Forgot your password?
-                    </a>
+                    <a href="#" class="forgot-password">Lupa kata sandi?</a>
 
-                    <button type="submit" class="login-btn">Log In</button>
+                    <button type="submit" class="login-btn">Masuk</button>
 
                     <p class="signup-text">
-                        Don't have an account?
-                        <a href="signup.html" class="signup-link" id="show-signup">Sign Up!</a>
+                        Belum punya akun?
+                        <a href="signup.html" class="signup-link" id="show-signup">Daftar</a>
                     </p>
                 </form>
             </div>
         </section>
-
-        <aside class="right-illustration" id="right-illustration">
-            <img src="assets/right.png" alt="Shopping illustration">
-        </aside>
 
     </main>
 
