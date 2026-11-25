@@ -1085,14 +1085,23 @@ button {
 
 .site-footer {
     width: min(1200px, calc(100% - 48px));
-    min-height: 125px;
     margin: 0 auto;
-    padding: 25px 0;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 8px 24px;
+    padding: 34px 0 22px;
     border-top: 1px solid var(--line);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr);
+    align-items: start;
+    gap: 36px;
+}
+
+.footer-branding {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
 }
 
 .footer-brand {
@@ -1105,14 +1114,30 @@ button {
     font-size: 18px;
 }
 
-.site-footer > p {
+.footer-branding > p,
+.footer-detail > p {
     margin: 0;
     color: #93868d;
     font-size: 11px;
+    line-height: 1.6;
+}
+
+.footer-details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.footer-detail h2 {
+    margin: 3px 0 10px;
+    color: #4a3941;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .footer-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 18px;
 }
 
@@ -1126,8 +1151,44 @@ button {
     color: var(--pink-deep);
 }
 
+.footer-social-list {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-social-icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid #efdde5;
+    border-radius: 50%;
+    background: #fff9fb;
+    color: var(--pink-deep);
+}
+
+.footer-social-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.footer-social-list li:nth-child(3) svg {
+    fill: currentColor;
+}
+
+.footer-detail .footer-social-note {
+    color: #a79ba1;
+    font-size: 10px;
+}
+
 .site-footer > small {
-    grid-column: 1 / -1;
+    display: block;
+    margin-top: 25px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
     color: #a79ba1;
     font-size: 9px;
 }
@@ -2098,17 +2159,17 @@ dialog::backdrop {
     }
 
     .site-footer {
-        grid-template-columns: 1fr auto;
-        gap: 13px;
+        padding-top: 26px;
     }
 
-    .site-footer > p {
-        grid-column: 1 / -1;
-        grid-row: 2;
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
-    .site-footer > small {
-        grid-row: 3;
+    .footer-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 16px;
     }
 
     .auth-container {
